@@ -1,2 +1,5 @@
 # pymetrics
-from the well-known pymetrics-0.8.1
+the well-known **pymetrics-0.8.1**  with some fixes from myself. 
+It stores the parsing of the python files inside a **sqlite db**.
+
+PS: I put the sources soon.
