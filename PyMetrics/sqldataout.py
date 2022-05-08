@@ -12,7 +12,7 @@ class InvalidTableNameError( Exception ):
     """ Used to indicate that the SQL table name is invalid."""
     pass
 
-class SqlDataOut( object ):
+class SqlDataOut:
     """ Class used to generate a command file suitable for runnning against
     any SQL dbms."""
     def __init__( self, 

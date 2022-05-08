@@ -8,14 +8,14 @@ __author__ = 'Reg. Charney <pymetrics@charneyday.com>'
 import sys
 import time
 import token
-import PyMetrics.tokenize as tokenize
+from PyMetrics import tokenize
 import PyMetrics.sqltemplate as sqltemplate
 from PyMetrics.utils import *
 
 
 class InvalidTableNameError( Exception ): pass
 
-class SqlTokenOut( object ):
+class SqlTokenOut:
     """ Class used to generate a command file suitable for runnning against
     any SQL dbms."""
     def __init__( self, fd, libName, fileName, tableName, genNewSw=False, genExistsSw=False ):

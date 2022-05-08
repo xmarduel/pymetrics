@@ -52,16 +52,16 @@ def __importMetricModules( includeMetrics ):
     i = 0
     metricModules = {}
     if PYTHON_VERSION < '2.5':
-      pfx = '' # this fix is for Python 2.4
+        pfx = '' # this fix is for Python 2.4
     else:
-      pfx = 'PyMetrics.'
+        pfx = 'PyMetrics.'
     for m,n in includeMetrics:
         try:
             mm = pfx + m
             if PYTHON_VERSION < '2.5':
-              mod = __import__( mm, globals(), locals(), [m] )
+                mod = __import__( mm, globals(), locals(), [m] )
             else:
-              mod = __import__( mm, fromlist=[m] )
+                mod = __import__( mm, fromlist=[m] )
             metricModules[m] = mod
             i += 1
         except ImportError as ierr:
@@ -83,12 +83,12 @@ def __instantiateMetric( metricModules, context, runMetrics, metrics, pa ):
     for m,n in pa.includeMetrics:
         inclIndx += 1
         try:
-          metricInstance[m] = None        # default value if metric class does not exist.
-          metricInstance[m] = metricModules[m].__dict__[n]( context, runMetrics, metrics, pa )
+            metricInstance[m] = None        # default value if metric class does not exist.
+            metricInstance[m] = metricModules[m].__dict__[n]( context, runMetrics, metrics, pa )
         except KeyError:
-          sys.stderr.write( "Module %s does not contain metric class %s -- metric %s ignored.\n\n" % (m,n,m) )
-          del( metricInstance[m] )
-          del( pa.includeMetrics[inclIndx] )
+            sys.stderr.write( "Module %s does not contain metric class %s -- metric %s ignored.\n\n" % (m,n,m) )
+            del( metricInstance[m] )
+            del( pa.includeMetrics[inclIndx] )
         
     return metricInstance
             
@@ -212,12 +212,12 @@ def main():
     
     result = {}
     if len( pa.inFileNames ) > 0:
-      for m,n in pa.includeMetrics:
-          if metricInstance[m]:
-              result = metricInstance[m].processRun( None )
-              if result:
-                  for r in list(result.keys()):
-                      od and od.write( m, None, r, result[r] )
+        for m,n in pa.includeMetrics:
+            if metricInstance[m]:
+                result = metricInstance[m].processRun( None )
+                if result:
+                    for r in list(result.keys()):
+                        od and od.write( m, None, r, result[r] )
     od and od.close()
     
     #if not pa.quietSw:

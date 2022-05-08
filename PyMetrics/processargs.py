@@ -111,18 +111,18 @@ Capitalized options negate the default option.
 """
 
 class PyMetricsOptionParser( OptionParser ):
-  """ Subclass OptionParser so I can override default error handler."""
-  def __init__( self, *args, **kwds ):
-    """ Just call super class's __init__ since we aren't making changes here."""
-    OptionParser.__init__( self, *args, **kwds )
+    """ Subclass OptionParser so I can override default error handler."""
+    def __init__( self, *args, **kwds ):
+        """ Just call super class's __init__ since we aren't making changes here."""
+        OptionParser.__init__( self, *args, **kwds )
     
-  def error( self, msg ):
-    """ Explicitly raise BadOptionError so calling program can handle it."""
-    raise BadOptionError( msg )
+    def error( self, msg ):
+        """ Explicitly raise BadOptionError so calling program can handle it."""
+        raise BadOptionError( msg )
     
 class ProcessArgsError( Exception ): pass
 
-class ProcessArgs( object ):
+class ProcessArgs:
     """ Process command line arguments."""
     def __init__( self,
                   *pArgs,
@@ -307,10 +307,10 @@ class ProcessArgs( object ):
             # which makes it mishandle exceptions, I have 'faked' the handling
             # of raising an exception and just return
             if doctestSw:
-              print(e)
-              return
+                print(e)
+                return
             else:
-              raise ProcessArgsError( e )
+                raise ProcessArgsError( e )
 
         so = None
         if self.genSqlSw and self.sqlFileName:
@@ -462,32 +462,32 @@ if __name__ == "__main__":
     # the parameter "doctest" from sys.argv, thus leaving things
     # as _normal_.
     if len(sys.argv) > 1 and sys.argv[1] == 'doctest':
-      doctestSw = True
-      sys.argv[1:] = sys.argv[2:]
-      import doctest
-      doctest.testmod( sys.modules[__name__] )
-      sys.exit( 0 )
+        doctestSw = True
+        sys.argv[1:] = sys.argv[2:]
+        import doctest
+        doctest.testmod( sys.modules[__name__] )
+        sys.exit( 0 )
 
     print("=== ProcessArgs: %s ===" % ("'file1.py', 'file2.py', '/home/files/file3.py'",))
     try:
-      pa = ProcessArgs( 'file1.py', 'file2.py', '/home/files/file3.py' )
-      testpa( pa )
+        pa = ProcessArgs( 'file1.py', 'file2.py', '/home/files/file3.py' )
+        testpa( pa )
     except ProcessArgsError as e:
-      sys.stderr.writelines( str( e ) )
+        sys.stderr.writelines( str( e ) )
     print()
     print("=== ProcessArgs: %s ===" % ("inFile1.py, sqlFileName='sqlF1.sql', genCsvSw=False,genKwCntSw=True",))
     try:
-      pa = ProcessArgs( "inFile1.py", sqlFileName='sqlF1.sql', genCsvSw=False,genKwCntSw=True )
-      testpa( pa )
+        pa = ProcessArgs( "inFile1.py", sqlFileName='sqlF1.sql', genCsvSw=False,genKwCntSw=True )
+        testpa( pa )
     except ProcessArgsError as e:
-      sys.stderr.writelines( str( e ) )
+        sys.stderr.writelines( str( e ) )
     print()
     print("=== ProcessArgs: %s ===" % ("No arguments",))
     try:
-      pa = ProcessArgs()
-      testpa( pa )
+        pa = ProcessArgs()
+        testpa( pa )
     except ProcessArgsError as e:
-      sys.stderr.writelines( str( e ) )
+        sys.stderr.writelines( str( e ) )
     print()
     sys.exit( 0 )
 
