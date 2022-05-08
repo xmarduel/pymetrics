@@ -655,7 +655,7 @@ class ComputeMetrics( object ):
             elif tok.type == ERRORTOKEN:
                 # we must compensate for the simple scanner mishandling errors
                 self.findFcnHdrEnd = True
-                self.invalidToken = mytoken.MyToken(type=NAME, 
+                self.invalidToken = PyMetrics.mytoken.MyToken(type=NAME, 
                                                     semtype=FCNNAME, 
                                                     text=tok.text, 
                                                     row=tok.row, 

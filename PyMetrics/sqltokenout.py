@@ -8,11 +8,10 @@ __author__ = 'Reg. Charney <pymetrics@charneyday.com>'
 import sys
 import time
 import token
-import PyMetrics.tokenize
+import PyMetrics.tokenize as tokenize
+import PyMetrics.sqltemplate as sqltemplate
 from PyMetrics.utils import *
 
-import string
-import PyMetrics.sqltemplate
 
 class InvalidTableNameError( Exception ): pass
 

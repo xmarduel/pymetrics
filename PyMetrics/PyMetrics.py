@@ -26,12 +26,11 @@ __author__ = 'Reg. Charney <charney-at-charneyday.com>'
 
 # Imports
 import sys
-import string
 from PyMetrics.processargs import ProcessArgs, ProcessArgsError
 import token
-import PyMetrics.sqltokenout
-import PyMetrics.sqldataout
-import PyMetrics.csvout
+import PyMetrics.sqltokenout as sqltokenout
+import PyMetrics.sqldataout as sqldataout
+import PyMetrics.csvout as csvout
 from PyMetrics.lexer import Lexer
 from PyMetrics.compute import ComputeMetrics
 from PyMetrics.globals import *

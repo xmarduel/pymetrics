@@ -8,7 +8,7 @@ __author__ = 'Reg. Charney <pymetrics@charneyday.com>'
 import sys
 import time
 import token
-import PyMetrics.tokenize
+import PyMetrics.tokenize as tokenize
 from PyMetrics.utils import *
 
 class CsvOut( object ):

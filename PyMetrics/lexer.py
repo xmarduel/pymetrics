@@ -6,12 +6,11 @@ __version__ = "$Revision: 1.1.1.1 $"[11:-2]
 __author__ = 'Reg. Charney <pymetrics@charneyday.com>'
 
 import sys
-import string
-#import cStringIO
+import io
 import PyMetrics.mytoken
 import keyword
 from PyMetrics.globals import *
-import io
+
 
 class ParseError(Exception):
     pass

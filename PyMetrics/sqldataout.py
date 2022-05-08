@@ -6,7 +6,7 @@ __revision__ = "$Revision: 1.2 $"[11:-2]
 __author__ = 'Reg. Charney <pymetrics@charneyday.com>'
 
 import time
-import PyMetrics.sqltemplate
+import PyMetrics.sqltemplate as sqltemplate
 
 class InvalidTableNameError( Exception ): 
     """ Used to indicate that the SQL table name is invalid."""
