@@ -41,10 +41,10 @@ if 0:
             print("<%s>==<%s>" % (s.__repr__(),qs.__repr__()))
             print("[%s]==[%s]" % (s,qs))
             try:
-              assert( s.__repr__() == qs.__repr__() )
-              assert( s, qs )
+                assert( s.__repr__() == qs.__repr__() )
+                assert( s == qs )
             except AssertionError:
-              print("Failed")
+                print("Failed")
         
         s0 = ''; qs0 = sqlQ(s0)
         check( qs0,  '""' )
